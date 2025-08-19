@@ -3,7 +3,7 @@
   "displayName": "json-to-ts-type",
   "description": "Generate Typescript Type and Interface from JSON",
   "publisher": "AbdulOwhab",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.103.0"
   },
