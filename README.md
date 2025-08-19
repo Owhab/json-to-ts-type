@@ -3,6 +3,8 @@
 
 Generate TypeScript **interfaces** or **types** instantly from JSON / API responses — right inside VS Code.
 
+[Install from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AbdulOwhab.json-to-ts-type)
+
 ## ✨ Features
 
 - 🚀 Convert selected JSON or clipboard content into TypeScript types/interfaces  
@@ -96,16 +98,6 @@ type Order = {
 
 ---
 
-## 📦 Extension Settings
-
-Future versions will allow you to configure:
-
-* Default output style (`type` or `interface`)
-* Naming conventions for root objects
-* Auto-insert at cursor vs. new file
-
----
-
 ## 🧑‍💻 Contributing
 
 Pull requests and feature suggestions are welcome!
@@ -114,5 +106,7 @@ Pull requests and feature suggestions are welcome!
 
 ## 📄 License
 
-[MIT](LICENSE)
+[MIT](https://marketplace.visualstudio.com/items?itemName=AbdulOwhab.json-to-ts-type)
+
+
 
