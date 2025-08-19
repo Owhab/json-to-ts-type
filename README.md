@@ -1,5 +1,4 @@
 
-````markdown
 # JSON to TS Type
 
 Generate TypeScript **interfaces** or **types** instantly from JSON / API responses — right inside VS Code.
@@ -14,7 +13,7 @@ Generate TypeScript **interfaces** or **types** instantly from JSON / API respon
 
 Example:
 
-```json
+```
 {
   "id": 1,
   "name": "John",
