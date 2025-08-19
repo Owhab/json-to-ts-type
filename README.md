@@ -1,71 +1,119 @@
-# json-to-ts-type README
 
-This is the README for your extension "json-to-ts-type". After writing up a brief description, we recommend including the following sections.
+````markdown
+# JSON to TS Type
 
-## Features
+Generate TypeScript **interfaces** or **types** instantly from JSON / API responses — right inside VS Code.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## ✨ Features
 
-For example if there is an image subfolder under your extension project workspace:
+- 🚀 Convert selected JSON or clipboard content into TypeScript types/interfaces  
+- 🔁 Supports **nested objects** and arrays  
+- 🔎 Automatically detects and reuses duplicate object shapes  
+- ⚡ Choice between `interface` and `type` output  
+- 🧩 Works with REST/GraphQL API responses, mock data, or any JSON  
 
-\!\[feature X\]\(images/feature-x.png\)
+Example:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```json
+{
+  "id": 1,
+  "name": "John",
+  "address": {
+    "city": "NY",
+    "zip": 12345
+  },
+  "orders": [
+    { "orderId": 1, "amount": 200 },
+    { "orderId": 2, "amount": 150 }
+  ]
+}
+````
 
-## Requirements
+➡ Generates:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```ts
+interface Root {
+  id: number;
+  name: string;
+  address: Address;
+  orders: Order[];
+}
 
-## Extension Settings
+interface Address {
+  city: string;
+  zip: number;
+}
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+interface Order {
+  orderId: number;
+  amount: number;
+}
+```
 
-For example:
+If you choose **type** instead:
 
-This extension contributes the following settings:
+```ts
+type Root = {
+  id: number;
+  name: string;
+  address: Address;
+  orders: Order[];
+};
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+type Address = {
+  city: string;
+  zip: number;
+};
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+type Order = {
+  orderId: number;
+  amount: number;
+};
+```
 
 ---
 
-## Following extension guidelines
+## 🛠️ Usage
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+1. Copy or select JSON text in your editor.
+2. Right-click → **Generate Type/Interface from JSON**
+3. Choose whether to output as `interface` or `type`.
+4. The generated code is inserted into your file.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+---
 
-## Working with Markdown
+## ⚙️ Commands
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+| Command                             | Description                          |
+| ----------------------------------- | ------------------------------------ |
+| `Generate Type/Interface from JSON` | Converts JSON into TypeScript models |
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+---
 
-## For more information
+## ⚡ Requirements
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+* VS Code **1.90.0** or later
+* Works in **TypeScript** and **JavaScript** projects
 
-**Enjoy!**
+---
+
+## 📦 Extension Settings
+
+Future versions will allow you to configure:
+
+* Default output style (`type` or `interface`)
+* Naming conventions for root objects
+* Auto-insert at cursor vs. new file
+
+---
+
+## 🧑‍💻 Contributing
+
+Pull requests and feature suggestions are welcome!
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
+
