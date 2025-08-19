@@ -25,7 +25,6 @@ async function jsonToTs(name: string, json: string, asType: boolean) {
 	if (asType) {
 		code = code.replace(/interface (\w+) {/g, "type $1 = {");
 	}
-
 	return code;
 }
 
