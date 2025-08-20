@@ -1,9 +1,9 @@
 {
   "name": "json-to-ts-type",
-  "displayName": "json-to-ts-type",
+  "displayName": "JSON to TS Type",
   "description": "Generate Typescript Type and Interface from JSON",
   "publisher": "AbdulOwhab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.103.0"

@@ -1,5 +1,10 @@
 
 
+## [0.0.5] - 2025-08-20
+### Update 
+- updated displayname of the the extension
+
+
 ## [0.0.4] - 2025-08-20
 ### Update 
 - added extension icon
