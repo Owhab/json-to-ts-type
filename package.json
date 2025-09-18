@@ -3,8 +3,8 @@
   "displayName": "JSON to TS Type",
   "description": "Generate Typescript Type and Interface from JSON",
   "publisher": "AbdulOwhab",
-  "version": "0.0.5",
-  "icon": "icon.png",
+  "version": "0.0.6",
+  "icon": "ext-icon.png",
   "engines": {
     "vscode": "^1.103.0"
   },
