@@ -33,6 +33,9 @@
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
+    "publish:major": "vsce publish major",
+    "publish:minor": "vsce publish minor",
+    "publish:patch": "vsce publish patch",
     "compile": "webpack",
     "build": "vsce package --no-dependencies",
     "watch": "webpack --watch",
