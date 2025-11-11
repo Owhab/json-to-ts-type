@@ -3,7 +3,7 @@
   "displayName": "JSON to TS Type",
   "description": "Generate TypeScript, Zod, JSON Schema, and GraphQL types from JSON, YAML, JSON5, CSV, and JSON Lines",
   "publisher": "AbdulOwhab",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "icon": "ext-icon.png",
   "engines": {
     "vscode": "^1.103.0"
