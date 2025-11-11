@@ -1,9 +1,9 @@
 {
   "name": "json-to-ts-type",
   "displayName": "JSON to TS Type",
-  "description": "Generate Typescript Type and Interface from JSON",
+  "description": "Generate TypeScript, Zod, JSON Schema, and GraphQL types from JSON, YAML, JSON5, CSV, and JSON Lines",
   "publisher": "AbdulOwhab",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "icon": "ext-icon.png",
   "engines": {
     "vscode": "^1.103.0"
@@ -11,7 +11,8 @@
   "categories": [
     "Other",
     "Programming Languages",
-    "Snippets"
+    "Snippets",
+    "Formatters"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
@@ -19,7 +20,7 @@
     "commands": [
       {
         "command": "extension.generateTypeFromJson",
-        "title": "Generate Type/Interface from JSON"
+        "title": "Generate Types/Schemas from JSON"
       }
     ],
     "menus": {
@@ -49,6 +50,7 @@
   "devDependencies": {
     "@types/browser-or-node": "^1.3.2",
     "@types/is-url": "^1.2.32",
+    "@types/js-yaml": "^4.0.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "18",
     "@types/pako": "^2.0.4",
@@ -69,7 +71,11 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "quicktype-core": "^23.2.6"
+    "quicktype-core": "^23.2.6",
+    "zod": "^3.22.4",
+    "js-yaml": "^4.1.0",
+    "json5": "^2.2.3",
+    "csv-parse": "^5.5.2"
   },
   "repository": {
     "type": "git",
