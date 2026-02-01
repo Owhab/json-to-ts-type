@@ -1,4 +1,3 @@
-
 # JSON to TS Type
 
 Generate TypeScript **interfaces**, **types**, **Zod schemas**, **JSON Schema**, and **GraphQL types** instantly from JSON / API responses — right inside VS Code.
@@ -8,6 +7,7 @@ Generate TypeScript **interfaces**, **types**, **Zod schemas**, **JSON Schema**,
 ## ✨ Features
 
 ### 📥 **Multiple Input Formats**
+
 - **JSON** - Standard JSON with intelligent auto-correction for common issues
 - **YAML** - Full YAML support for configuration files and data
 - **JSON5** - Extended JSON with comments, trailing commas, and unquoted keys
@@ -15,6 +15,7 @@ Generate TypeScript **interfaces**, **types**, **Zod schemas**, **JSON Schema**,
 - **JSON Lines** - Newline-delimited JSON for log files and data streams
 
 ### 📤 **Multiple Output Formats**
+
 - **TypeScript Interface** - Clean, readable interface definitions
 - **TypeScript Type** - Type aliases for flexible usage
 - **Advanced Interface/Type** - Smart analysis with enhanced features
@@ -23,6 +24,7 @@ Generate TypeScript **interfaces**, **types**, **Zod schemas**, **JSON Schema**,
 - **GraphQL Types** - GraphQL type definitions for APIs
 
 ### 🧠 **Advanced Analysis (Smart Modes)**
+
 - **Optional Property Detection** - Automatically determines optional vs required properties
 - **Enum Generation** - Creates enums from repeated string values
 - **Union Types** - Handles properties with varying data types
@@ -31,24 +33,51 @@ Generate TypeScript **interfaces**, **types**, **Zod schemas**, **JSON Schema**,
 - **Type Comments** - Adds helpful type annotations
 
 ### 🛠️ **Smart Processing**
+
 - **Auto-Correction** - Fixes common JSON formatting issues automatically
 - **Format Detection** - Automatically identifies input format
 - **Nested Structure Support** - Handles complex nested objects and arrays
 - **Custom Naming** - User-defined type and schema names
 - **Error Recovery** - Graceful handling of malformed data
 
-## 📥 Input Format Examples
+## � Quick Start Guide
+
+### Step-by-Step Visual Tutorial
+
+**Step 1: Select JSON and Access the Command**
+
+Select your JSON data in the editor, right-click to open the context menu, and choose **"Generate Types/Schemas from JSON"**.
+
+![Step 1 - Context Menu](src/public/step-1.png)
+
+**Step 2: Choose Your Output Format**
+
+Select from 7 different output formats based on your needs. Each format is optimized for different use cases.
+
+![Step 2 - Format Selection](src/public/step-2.png)
+
+**Step 3: Enter Type Name and Configure**
+
+Provide a custom name for your generated type/schema. For advanced formats, you can configure additional options like optional property detection, enum generation, and pattern recognition.
+
+![Step 3 - Configuration](src/public/step-3.png)
+
+That's it! The generated code will be inserted at your cursor position. 🎉
+
+## �📥 Input Format Examples
 
 **JSON** (with auto-correction):
+
 ```json
 {
-  id: 1,           // Missing quotes - auto-corrected
-  name: "John",
-  active: true,    // Trailing comma - auto-corrected
+  "id": 1, // Missing quotes - auto-corrected
+  "name": "John",
+  "active": true // Trailing comma - auto-corrected
 }
 ```
 
 **YAML**:
+
 ```yaml
 user:
   id: 1
@@ -60,17 +89,19 @@ user:
 ```
 
 **JSON5**:
+
 ```json5
 {
   // Comments are supported
   id: 1,
   name: "John",
   unquotedKey: "value", // Unquoted keys work
-  trailing: "comma",    // Trailing commas allowed
+  trailing: "comma", // Trailing commas allowed
 }
 ```
 
 **CSV**:
+
 ```csv
 id,name,email,active
 1,John Doe,john@example.com,true
@@ -78,6 +109,7 @@ id,name,email,active
 ```
 
 **JSON Lines**:
+
 ```
 {"id": 1, "name": "John", "active": true}
 {"id": 2, "name": "Jane", "active": false}
@@ -99,7 +131,7 @@ id,name,email,active
     { "orderId": 2, "amount": 150 }
   ]
 }
-````
+```
 
 ➡ Generates:
 
@@ -158,8 +190,8 @@ interface User {
 
 enum UserStatus {
   ACTIVE = "active",
-  INACTIVE = "inactive", 
-  PENDING = "pending"
+  INACTIVE = "inactive",
+  PENDING = "pending",
 }
 
 interface Permission {
@@ -171,19 +203,21 @@ interface Permission {
 **Zod Schema** output:
 
 ```ts
-import { z } from 'zod';
+import { z } from "zod";
 
 export const RootSchema = z.object({
   id: z.number().int(),
   name: z.string(),
   address: z.object({
     city: z.string(),
-    zip: z.number().int()
+    zip: z.number().int(),
   }),
-  orders: z.array(z.object({
-    orderId: z.number().int(),
-    amount: z.number()
-  }))
+  orders: z.array(
+    z.object({
+      orderId: z.number().int(),
+      amount: z.number(),
+    }),
+  ),
 });
 
 export type Root = z.infer<typeof RootSchema>;
@@ -247,6 +281,7 @@ type Order {
 ## 🛠️ Usage
 
 ### Basic Workflow
+
 1. **Select or copy data** in your editor (supports JSON, YAML, JSON5, CSV, JSON Lines)
 2. **Right-click** → **"Generate Types/Schemas from JSON"**
 3. **Choose output format** from 7 available options
@@ -257,38 +292,44 @@ type Order {
 ### Step-by-Step Guide
 
 #### 1. **Input Selection**
+
 - Select text in editor, or
 - Copy to clipboard (extension will use clipboard if no selection)
 - Supports multiple formats (auto-detected)
 
 #### 2. **Format Selection**
+
 Choose from these output formats:
 
-| Format | Description | Best For |
-|--------|-------------|----------|
-| **TypeScript Interface** | Basic interface definition | Simple type definitions |
-| **TypeScript Type** | Type alias definition | Union types, complex types |
-| **Advanced Interface** | Smart analysis + interface | Production code with smart features |
-| **Advanced Type** | Smart analysis + type alias | Flexible types with intelligence |
-| **Zod Schema** | Runtime validation schema | API validation, form handling |
-| **JSON Schema** | Standard JSON Schema | API documentation, validation |
-| **GraphQL Types** | GraphQL type definitions | GraphQL APIs and schemas |
+| Format                   | Description                 | Best For                            |
+| ------------------------ | --------------------------- | ----------------------------------- |
+| **TypeScript Interface** | Basic interface definition  | Simple type definitions             |
+| **TypeScript Type**      | Type alias definition       | Union types, complex types          |
+| **Advanced Interface**   | Smart analysis + interface  | Production code with smart features |
+| **Advanced Type**        | Smart analysis + type alias | Flexible types with intelligence    |
+| **Zod Schema**           | Runtime validation schema   | API validation, form handling       |
+| **JSON Schema**          | Standard JSON Schema        | API documentation, validation       |
+| **GraphQL Types**        | GraphQL type definitions    | GraphQL APIs and schemas            |
 
 #### 3. **Advanced Configuration** (Smart Formats Only)
+
 When you choose Advanced Interface/Type, you'll get additional options:
 
 **Quick Setup:**
+
 - **"Use Smart Defaults"** - Recommended for most cases
 - **"Configure Options"** - Fine-tune each feature
 
 **Custom Configuration Options:**
+
 - ✅ **Detect optional properties** - Analyze data patterns for optional fields
-- ✅ **Generate enums** - Create enums from repeated string values  
+- ✅ **Generate enums** - Create enums from repeated string values
 - ✅ **Create union types** - Handle mixed data types intelligently
 - ✅ **Add readonly modifiers** - Mark appropriate fields as readonly
 - ✅ **Detect patterns** - Recognize emails, UUIDs, dates, URLs
 
 #### 4. **Results**
+
 - Generated code appears at your cursor position
 - Success notification shows what was generated
 - Format detection notification shows what input type was detected
@@ -296,7 +337,9 @@ When you choose Advanced Interface/Type, you'll get additional options:
 ## 🌟 Real-World Examples
 
 ### Example 1: API Response → Advanced TypeScript
+
 **Input (JSON with patterns):**
+
 ```json
 {
   "user": {
@@ -315,6 +358,7 @@ When you choose Advanced Interface/Type, you'll get additional options:
 ```
 
 **Output (Advanced Interface with Smart Defaults):**
+
 ```typescript
 interface User {
   user: UserUser;
@@ -331,7 +375,7 @@ interface UserUser {
 }
 
 enum UserUserStatus {
-  ACTIVE = "active"
+  ACTIVE = "active",
 }
 
 interface Profile {
@@ -341,7 +385,9 @@ interface Profile {
 ```
 
 ### Example 2: Configuration File → Zod Schema
+
 **Input (YAML config):**
+
 ```yaml
 database:
   host: localhost
@@ -353,8 +399,9 @@ database:
 ```
 
 **Output (Zod Schema):**
+
 ```typescript
-import { z } from 'zod';
+import { z } from "zod";
 
 export const ConfigSchema = z.object({
   database: z.object({
@@ -363,16 +410,18 @@ export const ConfigSchema = z.object({
     ssl: z.boolean(),
     credentials: z.object({
       username: z.string(),
-      password: z.string()
-    })
-  })
+      password: z.string(),
+    }),
+  }),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
 ```
 
 ### Example 3: CSV Data → GraphQL Types
+
 **Input (CSV Employee Data):**
+
 ```csv
 id,name,department,salary,active
 1,John Smith,Engineering,75000,true
@@ -380,6 +429,7 @@ id,name,department,salary,active
 ```
 
 **Output (GraphQL Types):**
+
 ```graphql
 type Root {
   id: Int
@@ -391,16 +441,19 @@ type Root {
 ```
 
 ### Example 4: Malformed JSON → Auto-Fixed TypeScript
+
 **Input (Malformed JSON):**
+
 ```json
 {
-  id: 1,                    // Missing quotes
-  name: 'John Doe',         // Single quotes
-  tags: ['user', 'admin',], // Trailing comma
+  "id": 1, // Missing quotes
+  "name": "John Doe", // Single quotes
+  "tags": ["user", "admin"] // Trailing comma
 }
 ```
 
 **Output (Auto-corrected & Generated):**
+
 ```typescript
 interface Root {
   id: number;
@@ -413,16 +466,16 @@ interface Root {
 
 ## ⚙️ Commands
 
-| Command                             | Description                          |
-| ----------------------------------- | ------------------------------------ |
+| Command                            | Description                                                         |
+| ---------------------------------- | ------------------------------------------------------------------- |
 | `Generate Types/Schemas from JSON` | Converts JSON into TypeScript, Zod, JSON Schema, or GraphQL formats |
 
 ---
 
 ## ⚡ Requirements
 
-* VS Code **1.90.0** or later
-* Works in **TypeScript** and **JavaScript** projects
+- VS Code **1.90.0** or later
+- Works in **TypeScript** and **JavaScript** projects
 
 ---
 
@@ -435,6 +488,3 @@ Pull requests and feature suggestions are welcome!
 ## 📄 License
 
 [MIT](https://marketplace.visualstudio.com/items?itemName=AbdulOwhab.json-to-ts-type)
-
-
-
